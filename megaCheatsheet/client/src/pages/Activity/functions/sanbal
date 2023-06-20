@@ -1,0 +1,17 @@
+    useEffect(() => {
+        // fetch("https://api.ipify.org?format=json")
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         setUserIP(data.ip)
+        // console.log(`data of ip Address  `, data)
+        // });
+    }, []);
+
+    useEffect(() => {
+        // fetch(`http://apiip.net/api/check?ip=${userIP}&accessKey=385195d0-cb95-46fb-8a25-6ec2970bf69c`)
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         setUserLocation(data)
+        // console.log(`data of location  `, data)
+        // });
+    }, [userIP]);

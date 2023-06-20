@@ -1,0 +1,153 @@
+// 2)
+const handleCreateFolder = () => {
+    setFolderState({ ...folderState, modal: { type: 'folder', function: 'create' }, openModal: true })
+    setOpenFolderMenu(false)
+}
+
+// 2)
+const handleRenameFolder = () => {
+    setFolderState({ ...folderState, currentFolderId: item._id, modal: { type: 'folder', function: 'update' }, openModal: true })
+    setOpenFolderMenu(false)
+}
+
+// 3)
+const handleDeleteFolder = (parent) => {
+    if (parent) {                   // if folder is subFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: { parentFolder: parent.folderName } })
+    }
+    else {                          // if folder is rootFolder
+        // setFolderHierarchyForUpdate({})
+    }
+    setFolderState({ ...folderState, modal: { type: 'folder', function: 'delete' }, openDialogue: true, currentFolderId: item._id })
+    setOpenFolderMenu(false)
+}
+
+// 4)
+var handleOpenFolderMenu = () => {    // for renaming or deleting folder without opening it.
+    setOpenFolderMenu((pre) => !pre)
+    setFolderState({ ...folderState, currentFolderId: item._id, modal: { ...folderState.modal, type: 'folder' } })
+    rootFolder ? handleFolderClick(item, rootFolder) : handleFolderClick(item)
+}
+
+
+
+
+
+
+
+
+
+// 3)
+const handleCreateFile = () => {
+    setFolderState({ ...folderState, modal: { type: 'file', function: 'create' }, openModal: true })
+    setOpenFileMenu(false)
+}
+
+// 2)
+const handleRenameFile = (file) => {
+    setFolderState({ ...folderState, currentFileId: file._id, modal: { type: 'file', function: 'update' }, openModal: true })
+    setOpenFileMenu(false)
+}
+
+// 3)
+const handleDeleteFile = (file, parent) => {
+    if (parent) {                  // if folder is subFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: { parentFolder: parent.folderName } })
+    }
+    else {                          // if folder is rootFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: {} })
+    }
+    setFolderState({ ...folderState, modal: { type: 'file', function: 'delete' }, openDialogue: true, currentFileId: file._id })
+    setOpenFileMenu(false)
+}
+
+// 4)
+var handleOpenFileMenu = (file) => {    // for renaming or deleting folder without opening it.
+    setOpenFileMenu((pre) => !pre)
+    setFolderState({ ...folderState, currentFileId: item._id, modal: { ...folderState.modal, type: 'file' } })
+    const parent = isRootFolder ? item : rootFolder
+    handleFileClick(file, parent)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// 3)
+const handleCreateFile = () => {
+    setFolderState({ ...folderState, modal: { type: 'file', function: 'create' }, openModal: true })
+    setOpenFileMenu(false)
+}
+
+// 2)
+const handleRenameFile = (file) => {
+    setFolderState({ ...folderState, currentFileId: file._id, modal: { type: 'file', function: 'update' }, openModal: true })
+    setOpenFileMenu(false)
+}
+
+// 3)
+const handleDeleteFile = (file, parent) => {
+    if (parent) {                  // if folder is subFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: { parentFolder: parent.folderName } })
+    }
+    else {                          // if folder is rootFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: {} })
+    }
+    setFolderState({ ...folderState, modal: { type: 'file', function: 'delete' }, openDialogue: true, currentFileId: file._id })
+    setOpenFileMenu(false)
+}
+
+// 4)
+var handleOpenFileMenu = (file) => {    // for renaming or deleting folder without opening it.
+    setOpenFileMenu((pre) => !pre)
+    setFolderState({ ...folderState, currentFileId: file._id, modal: { ...folderState.modal, type: 'file' } })
+    const parent = isRootFolder ? item : parentOfSubFolder
+    handleFileClick(file, parent)
+}
+
+
+
+
+
+
+
+
+
+
+// 2)
+const handleCreateFolder = () => {
+    setFolderState({ ...folderState, modal: { type: 'folder', function: 'create' }, openModal: true })
+    setOpenFolderMenu(false)
+}
+
+// 4)
+const handleRenameFolder = () => {
+    setOpenFolderMenu(false)
+    setFolderState({ ...folderState, currentFolderId: item._id, modal: { type: 'folder', function: 'update' }, openModal: true })
+}
+
+// 5)
+const handleDeleteFolder = (parent) => {
+    if (parent) {                   // if folder is subFolder
+        setFolderState({ ...folderState, folderHierarchyForUpdate: { parentFolder: parent.folderName } })
+    }
+    else {                          // if folder is rootFolder
+        // setFolderHierarchyForUpdate({})
+    }
+    setFolderState({ ...folderState, modal: { type: 'folder', function: 'delete' }, openDialogue: true, currentFolderId: item._id })
+    setOpenFolderMenu(false)
+}
+
+// 6)
+var handleOpenFolderMenu = () => {    // for renaming or deleting folder without opening it.
+    setOpenFolderMenu((pre) => !pre)
+    setFolderState({ ...folderState, currentFolderId: item._id, modal: { ...folderState.modal, type: 'folder' } })
+    rootFolder ? handleFolderClick(item, rootFolder) : handleFolderClick(item)
+}

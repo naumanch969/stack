@@ -1,0 +1,310 @@
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { ArrowForwardIos, MoreHoriz, Update, Delete, Code, Adjust, Circle } from "@mui/icons-material"
+import { IconButton, Card } from "@mui/material"
+
+import { useStateContext } from "../../../contexts/ContextProvider"
+import SidebarItem from "./SidebarItem"
+
+
+const ParentOfFolders = ({ item, result, rootFolder, subFolderPaddingLeft }) => {
+    /////////////////////////////////////////////////////////////// VARIABLES ///////////////////////////////////////////////////////////////////////
+    var isRootFolder = result.find((parentFolder) => parentFolder.folderName == item.folderName)
+    const customFolders = ['code', 'apps']
+    const navigate = useNavigate()
+    const isParent = Boolean(item?.folders?.length)
+
+    /////////////////////////////////////////////////////////////// STATES //////////////////////////////////////////////////////////////////////////
+    const { folderState, setFolderState, selectedPreDefinedSidebarItem, setSelectedPreDefinedSidebarItem, urlPath, setUrlPath, openFolders, setOpenFolders } = useStateContext()
+    const [open, setOpen] = useState(false)
+
+    /////////////////////////////////////////////////////////////// USE EFFECTS /////////////////////////////////////////////////////////////////////
+    useEffect(() => {
+        folderState.closeAllFolders == true && setOpen(false)
+        setFolderState({ ...folderState, closeAllFolders: false })
+    }, [folderState.closeAllFolders])
+
+    useEffect(() => {
+        if ((folderState.lastAction) && item == folderState.activeFolder) {
+            setOpen(true)
+        }
+    }, [folderState.lastAction])
+
+
+
+    useEffect(() => {
+        const pathArray = window.location.pathname.split('/')
+        let parentFolder = pathArray[1]
+        let subParentFolder = pathArray[2]
+        let fileName = pathArray[3]
+
+
+        result.map((rootFol) => {
+
+            if (rootFol.folders.length !== 0 && rootFol.folderName == parentFolder) {
+
+                if (subParentFolder == 'nothing') {
+
+
+                    handleFolderClick(rootFol)
+                    rootFol.files.map((fileOfParent) => {
+                        if (fileOfParent.fileName == fileName) {
+                            handleFileClick(fileOfParent, rootFol)
+                        }
+                    })
+
+
+                }
+                else if (subParentFolder !== 'nothing') {
+
+                    handleFolderClick(rootFol)
+                    rootFol.folders.map((subFol) => {
+                        if (subFol.folderName == subParentFolder) {
+                            handleFolderClick(subFol, rootFol)
+                            subFol.files.map((file) => {
+                                file.fileName == fileName && handleFileClick(file, rootFol)
+                            })
+                        }
+                    })
+
+                }
+
+            }
+
+        })
+
+
+
+
+    }, [])
+
+    /////////////////////////////////////////////////////////////// FUNCTIONS ////////////////////////////////////////////////////////////////////////
+
+    /////////////////////////////// OF FOLDERS //////////////////////////////
+    // 1)
+    var handleFolderClick = (item, parent) => {
+        // item     - item is parentFolder if parentFolder is clicked, in that case parent will not exist (it will be undefined)
+        // parent   - parent folder will only exist if subFolder is clicked. In that case 'item' will be subFolder and 'parent' will refer to as parentFolder of item
+        if (parent) {                               // if item is sub folder
+            // console.log('item is subFolder - handlefolderclick is clicked ')
+            const parentFolder = parent.folderName
+            const subParentFolder = item.folderName
+            setFolderState({
+                ...folderState,
+                folderHierarchyForCreate: { error: "folder can't be created in third depth " },
+                folderHierarchyForUpdate: { parentFolder },
+                fileHierarchy: { parentFolder, subParentFolder },
+                currentFolderId: item._id,
+                activeFolder: item,
+                activeFile: {},
+                isParentFolder: false,
+                isFile: false
+            })
+            openFolders.subParentFolder == ''
+                ?
+                setOpenFolders({ parentFolder, subParentFolder, fileName: '' })
+                :
+                setOpenFolders({ parentFolder, subParentFolder: 'nothing', fileName: '' })
+        }
+        else {                                      // if item is root/parent folder
+            // console.log('item is parentFolder - handlefolderclick is clicked ')
+            const parentFolder = item.folderName
+            setFolderState({
+                ...folderState,
+                folderHierarchyForCreate: { parentFolder },
+                folderHierarchyForUpdate: {},
+                fileHierarchy: { parentFolder },
+                currentFolderId: item._id,
+                activeFolder: item,
+                activeFile: {},
+                isParentFolder: true,
+                isFile: false
+            })
+            openFolders.parentFolder == ''
+                ?
+                setOpenFolders({ parentFolder, subParentFolder: 'nothing', fileName: '' })
+                :
+                setOpenFolders({ parentFolder: '', subParentFolder: 'nothing', fileName: '' })
+        }
+        // setFolderState({ ...folderState, closeAllFolders: false })
+        setOpen((prev) => !prev)
+        setSelectedPreDefinedSidebarItem('')
+    }
+
+    useEffect(() => {
+        let path = window.location.pathname.split('/').slice(1,)
+        setUrlPath(path)
+    }, [window.location.pathname])
+
+
+    /////////////////////////////// OF FILES ////////////////////////////////
+    // 1)
+    const handleFileClick = (item, parent) => {         // item is also file
+        // item = the file which is clicked
+        // parent = { rootFolder, subFolder }           // rootFolder will exist in both cases (whether the file is within rootFolder or subFolder). if file is within rootFolder then subFolder will be 'nothing' (string), else if file is within subFolder then 'subFolder' will be an object (it will exist)
+
+        const { rootFolder, subFolder } = parent
+        console.log('rootFolder', rootFolder)
+        console.log('subFolder', subFolder)
+        var parentFolder = rootFolder?.folderName
+        // a) -  if file is within root/parent folder
+        rootFolder?.files.map((file) => {
+            if (file.fileName == item.fileName) {
+                setFolderState({
+                    ...folderState,
+                    folderHierarchyForCreate: { parentFolder },
+                    folderHierarchyForUpdate: {},
+                    fileHierarchy: { parentFolder },
+                    currentFileId: item._id,
+                    activeFile: file,
+                    activeFolder: {},
+                    isParentFolder: true,
+                    isFile: true
+                })
+                navigate(`${parentFolder}/nothing/${file.fileName}?page=1`)
+                setOpenFolders({ parentFolder, subParentFolder: 'nothing', fileName: item.fileName })
+            }
+        })
+
+        // b) -  if file is within subFolder
+        rootFolder?.folders?.map((subFol) => {
+
+            if (subFolder.folderName == subFol.folderName) {
+                subFol.files.map((file) => {
+
+                    if (file.fileName == item.fileName) {
+                        const subParentFolder = subFol.folderName
+                        setFolderState({
+                            ...folderState,
+                            folderHierarchyForCreate: {},
+                            folderHierarchyForUpdate: { parentFolder },
+                            fileHierarchy: { parentFolder, subParentFolder },
+                            currentFileId: item._id,
+                            activeFile: file,
+                            activeFolder: {},
+                            isParentFolder: false,
+                            isFile: true
+                        })
+                        navigate(`${parentFolder}/${subParentFolder}/${file.fileName}?page=1`)
+                        setOpenFolders({ parentFolder, subParentFolder, fileName: item.fileName })
+                    }
+
+                })
+            }
+
+
+        })
+        setSelectedPreDefinedSidebarItem('')
+    }
+
+
+
+    /////////////////////////////////////////////////////////////// Sub Components /////////////////////////////////////////////////////////////////////
+    // 1)
+    const Hr = () => (                                                      // white vertical line appeared to the extreme left of selected item/file/folder - it appears to left of only one item
+        <hr style={{ left: folderState.isParentFolder ? '-16px' : '-24px' }} className="h-full w-[3px] top-0 rounded-[2px] absolute left-[-12px] bg-gray-300 " />
+    )
+
+
+
+    return (
+
+        <div className={` 
+        ${openFolders.parentFolder == item.folderName
+                ?                                       // if parentFolder is selected/clicked, then change the colour of its body - a bit dark shade of main blue color
+                // ((folderState.fileHierarchy.subParentFolder && open) ? 'bg-gray-800' : 'bg-gray-700')
+                'bg-gray-800'
+                :                                       // if subParentFolder is selected/clicked, then change the colour of subFolder's body - a bit more dark shade of main blue colour
+                (openFolders.subParentFolder == item.folderName && 'bg-gray-700')
+            }
+         flex flex-col gap-[3px] my-[8px] rouned-[5px] `}
+        >
+
+
+            {console.log(openFolders.parentFolder == item.folderName && openFolders.subParentFolder == 'nothing' && openFolders.fileName == '' && item.folderName)}
+            {/********************************************************************** FOLDER *******************************************************************/}
+
+            <div
+                style={{ paddingLeft: isParent ? "4px" : "12px", paddingRight: "4px", borderRadius: '5px' }}
+                className={`${subFolderPaddingLeft}
+                        ${(folderState.activeFolder._id == item._id || (openFolders.parentFolder == item.folderName && openFolders.subParentFolder == 'nothing' && openFolders.fileName == ''))
+                        ?                           // change the colour of activeFolder 
+                        'bg-gray-400'
+                        :                           // if files of parentFolder or of subFolder are clicked/selected
+                        (openFolders.parentFolder == item.folderName && openFolders.subParentFolder == 'nothing'
+                            ?                           // if file of parentFolder is selected/clicked, then change the colour of parentFolder - a bit less shaded/dark than activeFolder colour
+                            'bg-gray-600'
+                            :                           // if file of subFolder is selected/clicked, then change the colour of subFolder - a bit less shaded/dark than activeFolder colour
+                            (openFolders.parentFolder == rootFolder?.folderName && openFolders.subParentFolder == item.folderName && openFolders.fileName !== '' && 'bg-gray-500')
+                        )}
+                            }
+                        ${isParent ? 'px-[4px] ' : 'pl-[12px] '}
+
+                        w-full relative  cursor-pointer flex justify-between items-center rounded-lg hover:bg-gray-400 rounded[5px] `}
+                onClick={rootFolder ? () => handleFolderClick(item, rootFolder) : () => handleFolderClick(item)}                    // rootFolder is only send throught sidebarItem of this file
+            >
+
+                {/* item name and icon */}
+                <span className="flex items-center gap-[8px] text-gray-300 my-[.3rem] w-full uppercase">
+                    {isParent ? <Code /> : <Adjust style={{ fontSize: '20px' }} className="text-[20px] " />}
+                    <p>{item?.folderName}</p>
+                    {folderState.activeFolder._id == item._id && <Hr />}
+                </span>
+
+                <ArrowForwardIos style={{ fontSize: '14px' }} className={`${(openFolders.parentFolder == item.folderName) && 'rotate-90'} text-[14px] `} />
+
+            </div>
+
+
+            {/********************************************************************** SIDEBAR-ITEM *******************************************************************/}
+
+            {
+                open && (
+                    item?.folders?.map((subFolder, index) => (
+                        <>
+                            <SidebarItem key={index} result={result} item={subFolder} rootFolder={item} subFolderPaddingLeft='pl-[8px] ' />
+                        </>
+                    ))
+                )
+            }
+
+            {/********************************************************************** FILE *******************************************************************/}
+            {item?.files &&
+                open &&
+                (
+                    item?.files.map((file, index) => (
+
+                        <div key={index}
+                            style={{ borderRadius: '5px' }}
+                            className={`${folderState.activeFile._id == file._id && 'bg-gray-400'}  flex justify-between items-center rounded-[5px] hover:bg-gray-400 `}
+                        >
+
+                            <p
+                                // if file is within rootFolder, 'item' will be rootFolder. Else if file is within subFolder, 'item' will be subFolder and 'rootFolder' will be rootFolder
+                                onClick={() => handleFileClick(file, isRootFolder ? { rootFolder: item, subFolder: 'nothing' } : { rootFolder, subFolder: item })}
+                                style={{ paddingLeft: customFolders.findIndex((folderName) => folderName == item.folderName) == -1 ? '20px' : '12px' }}
+                                className="w-full flex relative items-center cursor-pointer gap-0 h-8 pl-[12px] rounded-lg text-md text-gray-300  "
+                            >
+                                <Circle style={{ fontSize: '20px' }} className=" mr-[8px] text-[20px]  " />
+                                <span className="capitalize" >{file.fileName}</span>
+                                {folderState.activeFile._id == file._id && <hr className="h-full w-[3px] rounded-[2px] absolute left-[-12px] bg-gray-300 " />}
+                            </p>
+
+                        </div>
+
+                    ))
+                )}
+
+
+
+
+
+        </div>
+
+    )
+
+}
+
+
+export default ParentOfFolders
+

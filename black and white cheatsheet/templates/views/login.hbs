@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/login.css">
+    </head>
+<body>
+    {{>navbar}}
+
+     <div class="dark-btn">
+                <span></span>
+        </div>
+
+    <div class="bigContainerOfLog">
+        <div class="containerOfLogin">
+            <img src="images/login.png" class="loginImg" alt="profile img">
+            <form action="/login" class="loginForm" method="post">
+                <div class="inputOfLogin"> 
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password"> 
+                </div>
+                <button type="submit" class="loginBtnOfLogin">Login</button>
+            </form>
+            <div class="belowOfLogin">
+                <span>Don't Have Account?</span><span>Get<a href="registeration"><button class="registerBtnOfLogin">Register</button></a></span>
+            </div>
+        </div>
+    </div>
+
+
+    {{>footer}}
+
+    <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
+</body>
+</html>

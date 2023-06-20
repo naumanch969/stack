@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/html.css">    
+    <link rel="stylesheet" href="/prism.css">
+    <script src="/prism.js"></script>
+</head>
+<body>
+    {{>navbar}}
+    
+    <div class="dark-btn">
+                <span></span>
+        </div>
+
+
+    <div class="bigContainerOfLang">
+    <div class="containerOfLang">
+        <h1>Welcome to {{heading}} CheatSheet</h1>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>The Boiler Plate</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>data-   attribute</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>&lt;div&gt; class="p-btn btn" data-btn-num="1"&gt;Websites&lt;/div&gt;
+</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>html arrows</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>&rarr;            right arrow
+&larr;          left arrow 
+&uarr;          up arrow
+&darr;          down arrow
+</code></pre>
+        </div>
+        
+    
+    
+
+    </div>
+    </div>
+
+
+    {{>footer}}
+
+    {{!-- <script src="prism.js"></script> --}}
+    <script src="js/index.js"></script>
+</body>
+</html>

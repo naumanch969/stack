@@ -1,0 +1,10 @@
+
+Valtio
+{proxy} for state management just like the context
+useSnapshot to get the state just like the createContext(state)
+
+Framer Motion:
+AnimatePresence
+animate 
+initial
+exit

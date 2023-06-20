@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/html.css">   
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="/prism.css">
+    <script src="/prism.js"></script>
+</head>
+<body>
+    {{>navbar}}
+    
+     <div class="dark-btn">
+                <span></span>
+        </div>
+
+
+    <div class="bigContainerOfLang">
+    <div class="containerOfLang">
+        <h1>Welcome to {{heading}} CheatSheet</h1>
+        
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>validator validation package in mongoose</h2>
+                </div>
+                 <pre class="language-js pre"><code> body('email','Enter the valid email address').isEmail(),
+    body('name','Enter the valid  name').isLength({min:3}),
+    body('password',"Password can not be blank").exists(),l</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>adding validation in models of mongodb</h2>
+                </div>
+                 <pre class="language-js pre"><code>router.post("/",[
+    body('email','Enter the valid email address').isEmail(),
+    body('name','Enter the valid  name').isLength({min:3}),
+    body('password',"Password must be atleast 5 charcters").isLength({min:5}),
+], (req,res)=>{
+    const errors = validationResult(req)
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors:errors.array()});
+    }
+    User.create({                           //to create a new nodel
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password,
+    }).then(user=>res.json(user)) 
+})</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>mongoose connection</h2>
+                </div>
+                 <pre class="language-js pre"><code>
+mongoose.connect("mongodb://localhost:27017/CheatsheetUserData")
+.then(()=>console.log("connected with database"))
+.catch(err=>console.log(`error of database connection ${err}`))
+}
+CheatsheetUserData is the name of database 
+{{!-- two of four errors  --}}
+useNewUrlParser:true,
+useUnifiedTopology:true,
+useCreateIndex:true
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>User Authentication</h2>
+                </div>
+                 <pre class="language-js pre"><code>require('dotenv').config()
+const jwt = require("jsonwebtoken")
+const Regiseration = require('../models/Registeration')
+const auth = async (req,res,next)=>{
+    try {
+        const token = req.cookies.jwt
+        const verifiedUser = await jwt.verify(token,"thisissecretkeyofmycookies")
+        const id = verifiedUser._id
+        const user = await Regiseration.findOne({_id:id})
+        req.token = token
+        req.user = user
+        next()
+    } catch (err) {
+        res.status(500).send("/Authentication Error")
+    }</code></pre>
+        </div>
+        
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>User Authentication</h2>
+                </div>
+                 <pre class="language-js pre"><code>new model.find({$or:[{filter},{filter}]})
+                new model.find({marks: {$gt:50}})   marks greater than 50
+                 </code></pre>
+        </div>
+        
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Token Generation</h2>
+                </div>
+                 <pre class="language-js pre"><code>const token = await registerUser.generateToken()            // In app.js
+    RegisterSchema.methods.generateToken = async function(){        // In model.js
+    const id = this.id
+    const token = await jwt.sign({_id:id},"thisissecretkeyofmycookies")
+    this.tokens = this.tokens.concat({token:token})
+    return token
+}</code></pre>
+        </div>
+        
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Cookie Generation</h2>
+                </div>
+                 <pre class="language-js pre"><code>  res.cookie("jwt", token, {
+    httpOnly: true,
+    expires: new Date(Date.now() + 500000),
+    secure: true,
+    });</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>mongodb CRUD in CMD || basic commands in mongodb</h2>
+                </div>
+                 <pre class="language-js pre"><code>  
+                database(collection of tables)-collection(table)-document(row)-field(each entity)
+mongo-          to start the mongodb or mongoose shell 
+show dbs-       will show the availabla database 
+use myDatabase- will switch to database with name myDatabase if it is       
+                present  and if the   database with name 'muDatabase' is not exist mongo will create a new one 
+db-             will show the active database 
+show collections- to show the available collections in the active database
+db.collection.insertOne({})             to create a Document
+db.collection.insertMore([{},{},{}...]) to create multiple documents
+db.collection.find(query,projection)    to find the documents in the collection
+                                        where query may be as {class:12} projection may be as {_id:0,roll:1,name:0} 
+db.collection.findOne()                 to get only first one document
+.pretty(), .limit(3), .select({name:1})
+.countDocuments() .sort({name:1 or -1}) ascending sorting by name field
+db.collection.updateOne(filter,update)  filter-{class:12} and update {$set:
+                                        {class:11},{course:"comp"},..} class:12 will updated to class:11 and course:comp
+insertMany()                            for updating multiple documents
+db.collection.deleteOne/Many(filter)    filter may be as {type:frontend}
+db.collection.deleteOne({})             delete all the documents 
+                 </code></pre>
+        </div>
+    
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>$set,$gt,$gt,$gte,$in etc.</h2>
+                </div>
+                 <pre class="language-js pre"><code>$ is a predifined operator</code></pre>
+        </div>
+    
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>mongoose schema and model</h2>
+                </div>
+                 <pre class="language-js pre"><code>const courseSchema (in camelCase) = new mongoose.Schema({name:{type,required,unique,lowercase,min,max,minlength,trim etc.},type:{_______} etc.})
+const Course (Pascal Case and should be singular) = new mongoose.model("Playlist",courseSchema)     //Playlist is the name of the collection
+
+const variable = new Course({name:_____,type:____ etc.})
+const result = await variable.save()
+                 </code></pre>
+        </div>
+    
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>MongooseServerSelectionError error</h2>
+                </div>
+                 <pre class="language-js pre"><code>add the system/current ip address to the mongodb atlas</code></pre>
+        </div>
+    
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>mongodb atlas database usernames and passwords</h2>
+                </div>
+                 <pre class="language-js pre"><code>naumanchaudhry----coder786
+naumanch----naumanch123
+mongodb+srv://&;t'username&gt;:&gt;password&gt;@cluster0.rbrzmzk.mongodb.net/?retryWrites=true&w=majority
+                 </code></pre>
+        </div>
+
+
+
+    </div>
+    </div>
+
+    {{>footer}}
+
+
+    {{!-- <script src="prism.js"></script> --}}
+    <script src="js/index.js"></script>
+</body>
+</html>

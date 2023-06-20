@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/html.css">    
+    <link rel="stylesheet" href="/prism.css">
+    <script src="/prism.js"></script>
+</head>
+<body>
+    {{>navbar}}
+
+    <div class="dark-btn">
+                <span></span>
+        </div>
+
+
+    <div class="bigContainerOfLang">
+    <div class="containerOfLang">
+        <h1>Welcome to {{heading}} CheatSheet</h1>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>React comments of index.html</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>  
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+   
+  
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+   
+  
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+   ;</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>React CSS</h2>
+                </div>
+                 <pre class="language-css pre"><code>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Default Props</h2>
+                </div>
+                 <pre class="language-js pre"><code>Navbar.defaultProps = {
+  title: "Set title here",
+  aboutText: "Set About",
+};</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Prop Types</h2>
+                </div>
+                 <pre class="language-js pre"><code>Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  aboutText: PropTypes.string,
+};</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>React Hook/State</h2>
+                </div>
+                 <pre class="language-js pre"><code>const [text, setText] = useState('Enter Text  Here');
+the value of text is set as the value of useState and setText is a function to update the value of text as setTExt("new value")
+</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react textarea</h2>
+                </div>
+                 <pre class="language-js pre"><code> const handleOnChange = (event)=>{
+        setText(event.target.value)      //it replace the user typed text into value of textarea
+    }
+    const [text, setText] = useState('Enter Text  Here');
+    return (
+        <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="10"></textarea>
+    );</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react alert ------ object in props</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>&lt;strong&gt;{props.alert.type}&lt;/strong&gt;{props.alert.msg}
+
+                   alert = {alert} //it is props value
+                     const showAlert = (message,type)=>{     to cahnge the value of alert within the curly brackets
+    setalert({
+      msg:message,
+      type:type
+    })
+  }
+                   
+</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>a new syntax</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>        props.alert && <strong>{props.alert.type}</strong>{props.alert.msg}
+
+                 if props.alert is false or null then the next tag (strong) does not execute
+</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Switches and routes in react js</h2>
+                </div>
+                 <pre class="language-html pre"><code>constructor(){
+super()
+console.log("constructor in react run for each ececution of components")
+}</code></pre>
+        </div>
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Switches and routes in react js</h2>
+                </div>
+                 <pre class="language-html pre"><code>Old Syntax
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+&lt;Switch&gt;
+    &lt;Route path="/home" component={Home} /&gt;
+&lt;/Switch&gt;
+New Syntax:
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+&lt;Routes&gt;
+    &lt;Route path="/home" element={&lt;Home/&gt;} /&gt;
+&lt;/Routes&gt;</code></pre>
+        </div>
+        
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>using link to in react for anchor tag or navigation</h2>
+                </div>
+                 <pre class="language-HTML pre"><code> in map method 
+a unique key must be given to return div/value to define the each element uniquely
+example:
+{this.state.articles.map((element)=>{ 
+return &lt;div  key={element.url}  className="col-md-4 my-2"&gt;
+&lt;NewsItem title={element.title} discription={element.discription} imageUrl={element.urlToImage} newsUrl="todo"/&gt;
+&lt;/div&gt;
+      })}
+                 </code></pre>
+        </div>
+        
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>rebounding of element with new props through using key attribute </h2>
+                </div>
+              <pre class="language-HTML pre"><code> &lt;Route exact path="/science" element={&lt;News key="science" pageSize={9} country="in" category="science" /&gt;}/&gt;
+</code></pre>
+        </div>
+        
+        
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>using link to in react for anchor tag or navigation</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>  &lt;Link to="/"&gt;  Home  &lt;/Link&gt;
+link to is used instead of a href for not loading the page during navigation 
+by using a href during navigation page started to reload
+                 </code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>to overcome cors error</h2>
+                </div>
+                 <pre class="language-js pre"><code> let newNotes = JSON.parse(JSON.stringify(notes))
+jb data collection object jo in this case 'notes' h 
+me to update ho rha ho magar frontend p update na ho 
+to ye kro
+</div></code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>useHistory in react  and useNavigate</h2>
+                </div>
+<pre class="language-js pre"><code>in react useHistory has been replaced by useNavigate and history.push() is replased by navigate()
+</div></code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>to overcome cors error</h2>
+                </div>
+                 <pre class="language-js pre"><code>
+var cors = require('cors')    //add it to app.js
+app.use(cors())
+</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>using infinite scroll</h2>
+                </div>
+                 <pre class="language-js pre"><code><div
+  id="scrollableDiv"
+  {{!-- style={{
+    height: 300,
+    overflow: 'auto',
+    display: 'flex',
+    flexDirection: 'column-reverse',
+  }} --}}
+>
+  {/*Put the scroll bar always on the bottom*/}
+  &lt;InfiniteScroll
+    dataLength={this.state.items.length}
+    next={this.fetchMoreData}
+    {{!-- style={{ display: 'flex', flexDirection: 'column-reverse' }} //To put endMessage and loader to the top. --}}
+    inverse={true} //
+    hasMore={true}
+    loader={<h4>Loading...</h4>}
+    scrollableTarget="scrollableDiv"
+  &gt;
+    {this.state.items.map((_, index) => (
+      &lt;div style={style} key={index}&gt;
+        div - #{index}
+      &lt;/div&gt;
+    ))}
+  &lt;/InfiniteScroll&gt;
+</div></code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>premier short cut key reset the panel</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>// shift alt 0 to reset the panels of premier
+</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>navbar component for react</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>import React from 'react'
+import { Link } from "react-router-dom";
+const Navbar = () => {
+   return (
+    &lt;&gt;
+    &lt;nav className="navbar navbar-expand-lg bg-dark navbar-dark"&gt;
+        &lt;div className="container-fluid"&gt;
+            &lt;Link className="navbar-brand" to="/"&gt;Navbar&lt;/Link&gt;
+            &lt;button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span className="navbar-toggler-icon"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+            &lt;div className="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+            &lt;ul className="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li className="nav-item"&gt;
+                &lt;Link className="nav-link active" aria-current="page" to="/"&gt;Home&lt;/Link&gt;
+                &lt;/li&gt;
+                &lt;li className="nav-item"&gt;
+                &lt;Link className="nav-link" to="/about"&gt;About&lt;/Link&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form className="d-flex" role="search"&gt;
+                &lt;input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/&gt;
+                &lt;button className="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+    &lt;/&gt;
+  );
+}
+
+export default Navbar
+
+</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>infinte scroll link</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>https://www.npmjs.com/package/react-infinite-scroll-component</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>e.target.value and e.target.name </h2>
+                </div>
+                 <pre class="language-HTML pre"><code>    const handleOnChange = (e)=>{
+e.target.value             //it returns the onchange value of input
+e.target.name              //it returns the name of input field that is 'discription' in this case
+setNote({...note , [e.target.name]:e.target.value})   //spread operator
+}
+  return (
+            &lt;div className ="mb-3"&gt;
+                &lt;label htmlFor="discription" className ="form-label"&gt;Discription&lt;/label&gt;
+                &lt;input type="text" className ="form-control" id="discription" name='discription' onChange={handleOnChange}/&gt;
+            &lt;/div&gt;
+  )</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>infinte scroll link</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>https://www.npmjs.com/package/react-infinite-scroll-component</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>useLocaiton Hook in react js </h2>
+                </div>
+                 <pre class="language-HTML pre"><code>import { useLocation } from "react-router-dom";
+let location = useLocation()
+useEffect(()=>{
+console.log(location)
+},[location])</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>The Boiler Plate</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react-redux store addition</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+createStore(reducers,above code)
+                 </code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react-redux reducer function</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>const initialState = 10;
+
+const changeNumber = ( state = initialState,action )=>{
+    switch (action.type){
+        case "INCREMENT" : return state + 1
+        case "DECREMENT" : return state - 1
+        default : return state
+    }
+}
+
+export default changeNumber;
+
+there may be multiple reducers defined as above
+                 </code></pre>
+        </div>
+
+
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react-redux combineReducers function</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>import changeNumber from "./incDec";
+import { combineReducers } from "redux";
+const rootReducer = combineReducers({
+    changeNumber: changeNumber
+})
+export default rootReducer
+all the reducers are imported  from reducers file and combine to single one as above
+</code></pre>
+
+        </div>
+
+    
+
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>for seting useState hook to a object or one property of object</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>(e)=>{setPostData({...postData,creater:e.target.value})}</code></pre>
+        </div>
+
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react-redux useSelector useDispatch hooks</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>  const myState = useSelector(state=> state.changeNumber)
+  const dispatch = useDispatch()
+  useSelector is used to grab the states
+  useDispatch is used to grab the various actions/functions as described in action/index.js
+</code></pre>
+        </div>
+
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react-redux action example for CRUD</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>import * as api from "../api/index"
+
+export const getPosts = ()=>  async(dispatch) => {
+    const {data} = await api.fetchPosts();
+    dispatch({type:"FETCH_ALL",payload:data})
+}
+</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>post CRUD operation in react redux</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>
+1- add route to router
+(
+    router.patch(`/:userId`,updatePost)
+)
+2- write function to update post server end in controller
+(
+    const updatePost = async (req,res)=>{
+        const id = req.params.userId;    // id of post to be updated
+        const post = req.body;   // updated post
+        if(mongoose.ObjectId.Types.isValid(id)) return res.status(404).send("no post with this id")
+        const updatedPost = await postModel.findByIdAndUpdate(id,post,{new:true})
+    }
+)
+3- issue api request from frontend from api folder
+(
+    export const updatePost=(id,updatePost)=>{return api.patch(`${url}/${id}`,updatedPost)}
+)
+4- write code for action
+(
+    import * as api from "../api/index"
+    export const updatePost = (id,post) => async(dispatch) =>  {
+        try {
+            const { data } = await api.updatePost(id,post)
+            dispatch({type:"UPDATE",payload:data})
+        } catch (error) {
+            console.log("error in  updating post in actions" , error)
+        }
+})
+5- code reducer function in reducerse
+(
+    case "UPDATE": return posts.map( (post)=>post._id===action.payload._id ? action.payload : post )    //action.payload is updatedPost
+)
+6- let dispatch = useDispatch
+7- const post = useSelector(state => currentId ? state.posts.find(p=>p._id === currentId) : state.posts )   // find the particular post of id currentid from posts array imported from reducers index.js
+8- get id of the post to be updated from post.js by post._id where post is passed as prop from posts.js 
+(
+    onClick on update button in card/post in frontend/screen get id by setCurrentId(post._id)
+)
+9- passed id to form using prop drilling
+(
+    use useState hook in parent of both form and posts (app.js) as value currentId and setCurrentId and set it to null and then changing in currentId in post.js will automatically reflects to form.js
+)
+10- change the state of postData to new post
+(
+    useEffect( ()=>{
+        if(post) setPostData(post) //post is given in step 7
+    },[post] )
+)
+11- here is actually calling update function
+(
+    onClick on submit button 
+    dispatch(updatePost(currentId,post))
+)
+</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react redux action crud operation</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>
+
+// for any CRUD function
+// first call that function
+// dispatch the id and payload
+</code></pre>
+        </div>
+    
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>reverse map array</h2>
+                </div>
+                 <pre class="language-HTML pre"><code>
+  posts.slice(0).reverse().map((post)=>(
+                  <Grid key={post._id} xs={12} sm={6} item>
+                      <Post post={post} setCurrentId={setCurrentId}  />
+                  </Grid>
+              ))
+</code></pre>
+        </div>
+
+
+
+    </div>
+    </div>
+
+{{>footer}}
+
+    {{!-- <script src="prism.js"></script> --}}
+    <script src="js/index.js"></script>
+</body>
+</html>

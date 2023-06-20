@@ -1,0 +1,181 @@
+say hello to enhancement of your productivity
+
+
+19 March 2023
+1) 2 Lacs
+2) Data Structures and Algorithms
+3) Next JS
+4) Photoshop
+5) Illustrator
+6) Electron JS
+7) Premiere
+8) WordPress
+9) Web 3.0
+10) 20 MERN Projects
+31 December 2023
+
+March:
+
+    19 march:
+        Portfolio
+        chapter 1 - P
+
+    20 march:
+        HooBank
+        Musify
+        chapter 1 - P
+        chapter 1 - M
+
+    21 march:
+        Youtube
+        Memories
+        JS Portfolio
+        chapter 3 - P
+        chapter 2 - M
+
+    22 march:
+        Diary
+        chapter 3 - P
+        chapter 2 - M
+
+    23 march:
+        Diary
+        chapter 4 - P
+        chapter 3 - M
+
+     24 march:
+        Diary
+        chapter 5 - P
+        chapter 3 - M
+
+    25 march:
+        Diary
+        chapter 5 - P
+        chapter 5 - M
+
+    26 march:
+        Diary
+        chapter 6 - P
+        chapter 7 - M
+
+    27 march:
+        Diary
+        chapter 6 - P
+        chapter 4 - M
+
+    28 march:
+        Diary
+        chapter 7 - P
+        chapter 4 - M
+
+    29 march:
+        Diary
+        chapter 8 - P
+        chapter 6 - M
+
+    30 march:
+        Diary
+        chapter 9 - P
+        chapter 6 - M
+
+    31 march:
+        Diary
+        chapter 10 - P
+        chapter 6 - M
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+April:
+    NET 3
+    1 order
+    Data Structures and Algorithms
+    1 MERN Project 
+    10 Mini Projects
+     CSS components
+
+May :
+    1 order
+    Photoshop
+    Papers
+
+June:
+    2 orders
+    Next JS
+    Ticktok Clone
+    3 Next JS Projects
+    2 MERN Projects
+    Internship
+    Premiere
+
+July:
+    2 orders
+    2 MERN Projects
+    Electron JS
+
+August:
+    2 orders
+    2 MERN Projects
+    Web 3.0
+
+September:
+    3 orders
+    University
+
+October:
+    2 orders
+    Illustrator
+    2 MERN Projects
+
+November:
+    2 orders
+
+December:
+    3 orders
+
+
+
+
+
+
+    adding the userId in his post 
+    friends
+        suggestions
+        requests
+        friends
+    share
+    comment
+    like - show people who liked the post
+    accounts switch account delete
+    Profile Page
+        account detail
+        saved
+        posted
+        tagged
+    CreatePost - mood/activity/feeling, video input
+
+    Home, Friends pages should be covered
+
+    Groups
+    Collections
+    Notifications
+    
+
+
+
+    working of accept requests

@@ -1,0 +1,36 @@
+
+
+
+/* .grid-container{ */
+    /* display: grid; */
+    /* grid-template-columns: repeat(auto-fill, 25%); */
+    /* grid-column-gap: 10px; */
+    /* grid-row-gap: 10px; */
+    /* grid-gap: 10px; */
+    /* grid-auto-rows: minmax(200px, fit-content);             (min-height of row, max-height of row ) */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* justify-items: center; */
+/* } */
+
+
+/* .grid-item{ */
+    /* grid-column: 1/-1;              startingColumn/endingColumn -1 indicates the final line */
+    /* grid-column-start: 1;           the column from which grid element should start */
+    /* grid-column-end: 2;             the column from which grid element should end   */
+    /* grid-column: span 2;            span over two columns */
+    /* align-self: start; */
+    /* justify-self: start; */
+    /* align-content: ; */
+/* } */
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 10px;
+}
+
+.grid-item {
+  width: 250px;
+}

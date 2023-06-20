@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/html.css">    
+    <link rel="stylesheet" href="/prism.css">
+    <script src="/prism.js"></script>
+</head>
+<body>
+    {{>navbar}}
+     <div class="dark-btn"> <span></span></div>
+
+    <div class="bigContainerOfLang">
+    <div class="containerOfLang">
+        <h1>Welcome to {{heading}} CheatSheet</h1>
+        
+
+
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>target and dataset property</h2>
+        </div>
+        <pre class="language-js pre"><code>    const p_btn_clicked = e.target 
+    const btn_num = p_btn_clicked.dataset.btnNum;</code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Email Pattern</h2>
+        </div>
+        <pre class="language-js pre"><code>const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;</code></pre>
+    </div>
+
+
+        
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Toggle Button</h2>
+        </div>
+        <pre class="language-js pre"><code>var darkBtn = document.getElementsByClassName("dark-btn")[0]
+darkBtn.onclick = function () {
+    darkBtn.classList.toggle("dark-btn-on")
+    document.body.classList.toggle("dark-theme")
+    if(localStorage.getItem("theme") == "light"){
+        localStorage.setItem("theme","dark")
+    }
+    else{
+        localStorage.setItem("theme","light")
+    }
+    }
+
+if(localStorage.getItem("theme") == "light"){
+    darkBtn.classList.remove("dark-btn-on");
+    document.body.classList.remove("dark-theme")
+}
+else if(localStorage.getItem("theme") == "dark"){
+    darkBtn.classList.add("dark-btn-on");
+    document.body.classList.add("dark-theme")
+}
+else{
+    localStorage.setItem("theme","light")
+}
+</code></pre>
+        </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Searching By Complete word/Sentence</h2>
+        </div>
+        <pre class="language-js pre"><code>const h2 = document.querySelectorAll("h2")
+const searchBtn = document.getElementsByClassName("searchBtn")[0]
+const searchBox = document.getElementsByClassName("searchInput")[0]
+
+searchBox.addEventListener("input",function(){
+    const searchText = (searchBox.value).toLowerCase()
+    Array.from(h2).forEach( function(element,index){
+        const elementText = element.innerHTML.toLowerCase()
+        const languageBlock = element.parentElement.parentElement
+        if(elementText === searchText){
+            languageBlock.style.display = "block"
+        }
+        else if(searchText ==""){
+            const langBlock = document.getElementsByClassName("langBlock")[index]
+            langBlock.style.display = "block"
+        }
+        else{
+            languageBlock.style.display = "none"
+        }
+    })
+})</code></pre>
+    </div>
+
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>splitting/breaking Text</h2>
+        </div>
+        <pre class="language-js pre"><code>text.split(" ")    //it will return an array</code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Regular Expression</h2>
+        </div>
+        <pre class="language-js pre"><code>const regEx = /regularExpression/
+regEx.source = the value of regEx that in this case is regularExpression
+        </code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Exec function of regular expression</h2>
+        </div>
+        <pre class="language-js pre"><code>this function will return an arrat in case of match and null in case of no match </code></pre>
+regEx.exec(string)
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>regular expression flags</h2>
+        </div>
+        <pre class="language-js pre"><code> </code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>news api parameteres</h2>
+        </div>
+        <pre class="language-js pre"><code>pagesize
+totalResults
+country
+category
+q
+urlToImage
+url
+</code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>My news api key</h2>
+        </div>
+        <pre class="language-js pre"><code>787f416c9da84c758d48f8ee0b0826b7 </code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Interseting Information --- use of dollar sign ($)</h2>
+        </div>
+        <pre class="language-js pre"><code>$ is used to specify the selected element im the google chrome
+for example:    $.style.backgroundColor = "blue"      will change the color of current selected element in chrome
+Note: it will work only in chrome
+        </code></pre>
+    </div>
+
+
+    <div class="langBlock">
+        <div class="divOfH">
+            <h2>Searching By Characters</h2>
+        </div>
+        <pre class="language-js pre"><code>const h2 = document.querySelectorAll("h2")
+const searchBtn = document.getElementsByClassName("searchBtn")[0]
+const searchBox = document.getElementsByClassName("searchInput")[0]
+const langBlock = document.getElementsByClassName("langBlock")
+searchBox.addEventListener("input",function(){
+    const searchText = (searchBox.value).toLowerCase()
+    Array.from(langBlock).forEach( function(element,index){
+        const elementText = element.getElementsByTagName("h2")[0].innerText.toLowerCase()
+        console.log(elementText)
+        console.log(element)
+        console.log(elementText.includes(searchText))
+        if(elementText.includes(searchText)){
+            element.style.display = "block"
+        }
+        else if(searchText === ""){
+            langBlock.style.display = "block"
+        }
+        else{
+            element.style.display = "none"
+        }
+    })
+})</code></pre>
+    </div>
+
+
+
+    </div>
+    </div>
+    {{>footer}}
+    <script src="prism.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

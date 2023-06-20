@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/contact.css">
+    </head>
+<body>
+    {{>navbar}}
+    
+     <div class="dark-btn">
+                <span></span>
+        </div>
+
+
+    <div class="bigContainerOfContact">
+
+        <div class="contactHeading">
+            <h1>Feel  Free  To  Contact  Us</h1>
+        </div>
+    <div class="containerOfContact">
+        <form action="/" class="contactForm"  method="post">
+
+                <div class="inputBoxFirst inputBox">
+                    <input type="text" placeholder="First Name" class="firstName" name="firstName">
+                    {{!-- <p class="firstText"></p> --}}
+                </div>
+                    
+                <div class="inputBoxLast inputBox">
+                    <input type="text" placeholder="lastName" class="lastName" name="lastName">
+                    {{!-- <p class="lastText"></p> --}}
+                </div>
+
+                <div class="inputBoxEmail inputBox">
+                    <input type="email" placeholder="Email" onkeydown="emailValidation()" class="email" name="email">
+                    <p class="emailText"></p>
+                </div>
+                    
+                <div class="inputBoxPhone inputBox">
+                    <input type="number" placeholder="Phone Number" class="phone" name="phone">
+                    {{!-- <p class="phoneText"></p> --}}
+                </div>
+
+                <div class="inputBoxTextarea inputBox">
+                     <textarea name="textarea" placeholder="How Can We Help You" class="textareaOfContactPage" id="textarea"  rows="10"></textarea>
+                </div>
+
+                <div class="divOfConntactBtn">
+                    <button type="submit" class="contactBtn">Submit</button>
+                </div>
+        </form>
+    </div>
+    </div>
+
+
+    {{>footer}}
+    <script src="js/index.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

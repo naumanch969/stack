@@ -1,0 +1,13 @@
+export { default as Hero } from "./Hero/Hero"
+export { default as Code } from "./Code/CodePage"
+export { default as App } from "./App/App"
+export { default as Auth } from "./Auth/Auth"
+export { default as Random } from "./Random"
+
+export { default as Debate } from "./Debate/DebatePage"
+export { default as Notes } from "./Notes/NotesPage"
+export { default as Tasks } from "./Tasks/TasksPage"
+export { default as Document } from "./Document/DocumentPage"
+export { default as Overview } from "./Overview/OverviewPage"
+export { default as Support } from "./Support/SupportPage"
+export { default as Activity } from "./Activity/ActivityPage"

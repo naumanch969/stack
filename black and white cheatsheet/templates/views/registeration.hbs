@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/registeration.css">
+    </head>
+<body>
+    {{>navbar}}
+    
+    <div class="dark-btn">
+                <span></span>
+        </div>
+
+    <div class="bigContainer">
+        <div class="containerOfRegisteration">
+            <div class="up">
+                <form action="/registeration" class="registeration" method="POST">
+                    <h1 class="headingOfRegisteration">Register Yourself</h1>
+                    <div class="formLeft inputBox">
+
+                        <div class="inputBoxFirst inputBox">
+                            <p class="firstText"></p>
+                            <input type="text" name="firstName" placeholder="First Name" id="firstName">
+                        </div>
+                        
+                        <div class="inputBoxPhone inputBox">
+                            <input type="number" name="phone" placeholder="Phone" id="phone">
+                            <p class="phoneText"></p>
+                        </div>
+                        
+                        <div class="inputBoxEmail inputBox">
+                            <input type="email" name="email" placeholder="Email" id="email">
+                            <p class="emailText"></p>
+                        </div>
+
+                        <div class="inputBoxPassword inputBox">
+                            <input type="password" name="password" placeholder="Password" id="password">
+                            <p class="passwordText"></p>
+                        </div>
+
+                    </div>
+                    <div class="formRight">
+
+                        <div class="inputBoxLast inputBox">
+                           <input type="text" placeholder="Last Name*" name="lastName" id="lastName">
+                           <p class="lastText"></p>
+                        </div>
+
+                        <div class="inputBoxAge inputBox">
+                           <input type="number" name="age" placeholder="Age" id="age">
+                           <p class="numberText"></p>
+                        </div>
+
+                        <div class="gender inputBox">
+                            <label for="male"><input name="gender" type="radio" value="male" id="male"><span>Male</span></label>
+                            <label for="female"><input name="gender" type="radio" value="female" id="female"><span>Female</span></label>
+                            <label for="other"><input name="gender" type="radio" value="other" id="other"><span>Other</span></label>
+                            <p class="genderText"></p>
+                        </div>
+
+                        <div class="inputBoxConfirm inputBox">
+                           <input type="password" name="confirmPassword" placeholder="Confirm Password" id="confirmPassword">
+                           <p class="confirmText"></p>
+                        </div>
+
+                    </div>
+                    <div class="submit">
+                        <button class="submitBtn" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+            <div class="below">
+                <div> <span>Already Have Account?</span><span>Click to <a href="/login"><button class="loginOfRegisteration">Login</button></a></span></div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="js/index.js"></script>
+    <script src="js/registeration.js"></script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    {{>head}}
+    <link rel="stylesheet" href="css/html.css">    
+    <link rel="stylesheet" href="/prism.css">
+    <script src="/prism.js"></script>
+</head>
+<body>
+    {{>navbar}}
+    
+        <div class="dark-btn">
+                <span></span>
+        </div>
+
+
+    <div class="bigContainerOfLang">
+    <div class="containerOfLang">
+        <h1>Welcome to {{heading}} CheatSheet</h1>
+        
+
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Starter Template For Project</h2>
+                </div>
+                 <pre class="language-css pre"><code>/* a website should contain 3 font families max */
+/* work sans    poppins */
+
+*{
+    padding: 0;margin: 0;box-sizing: border-box;
+}
+
+:root{
+    --heading:rgb(0,10,45);
+    --p:#777;
+    --para-tint:#e4e4e4;
+    --white:#fff;
+    --helper:#8490ff;
+    --helper-tint:#f3f4ff;
+    --bg:rgb(249,249,255);
+    --gradient:linear-gradient(0deg , rgb(132 144 255) 0%, rgb(98 189 252) 100%);
+    --gradientSupport: -webkit-linear-gradient(0deg, rgb(132 144 256) 50%, rgb(98 189 252) 100%);
+    --shodow: 0px 0px 20px 0px rgb(132 144 255 / 20%)
+}
+
+html{
+    font-size: 62.5%;
+    /* 1rem = 10px */
+}
+
+h1,h2,h3,h4{
+    font-family: "poppins", sans-serif;
+}
+
+h1{
+    color: var(--heading);
+    font-size: 6rem;
+    font-weight: 600;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+p{
+    color: var(--p);
+    line-height: 1.6;
+    font-size: 1.7rem;
+}
+
+a{
+    text-decoration: none;
+}
+
+li{
+    list-style: none;
+}
+
+</code></pre>
+        </div>
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>e.target</h2>
+                </div>
+                 <pre class="language-css pre"><code>With the help of e.target we can get a particular button on which user has clicked
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>targeting another class on hover</h2>
+                </div>
+                 <pre class="language-css pre"><code>.img-overlay:hover > .overlay{
+transform: translateY(-100%);
+}
+
+On hovering on img-overlay class transform property will apply on the class overlay
+</code></pre>
+        </div>
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Creating box with Caret</h2>
+                </div>
+                 <pre class="language-css pre"><code>.bio-progress-bar span{
+    position: absolute;
+    top: 1.6rem;
+    width: 4rem;
+    height: 2rem;
+    background: var(--helper);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 0;
+    border: none;
+}
+.bio-progress-bar span::after{
+    content: "";
+    position: absolute;
+    top: -1.6rem ;
+    height: 0;
+    width: 0%;
+    border: .8rem solid transparent;
+    border-bottom-color: var(--helper);
+}
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Creating Caret</h2>
+                </div>
+                 <pre class="language-css pre"><code>height: 0;
+width: 0%;
+border: .8rem solid transparent;
+border-bottom-color: red;
+border-top-color: green;
+border-right-color: yellow;
+border-left-color: pink;
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Gap property</h2>
+                </div>
+                 <pre class="language-css pre"><code>position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50 -50);
+
+    or
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Gap property</h2>
+                </div>
+                 <pre class="language-css pre"><code>Gap property is the property of parent element like justify-content is the property of parent element which determines the gap/spacing between the elements of flex-box
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Heading with stylish underline</h2>
+                </div>
+                 <pre class="language-css pre"><code>.common-heading{
+    font-size: 4rem;
+    text-transform: capitalize;
+    font-weight: 600;
+    margin-bottom: 3.6rem;
+    position: relative;
+}
+.common-heading::before{
+    content: "";
+    position: absolute;
+    top: 110%;
+    left: 0%;
+    width: 1.3rem;
+    height: 1.3rem;
+    border-radius: 50%;
+    background: var(--helper);
+}
+.common-heading::after{
+    content: "";
+    position: absolute;
+    top: 123.5%;
+    left: 1.3rem;
+    width: 15rem;
+    height: .3rem;
+    background: var(--helper);
+}
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>psudo elements anchor tag</h2>
+                </div>
+                 <pre class="language-css pre"><code>sketch figma or sigma file esddica file
+always use only single h1 tag in website that is in your hero section
+</code></pre>
+        </div>
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>variables to support on multiple browsers</h2>
+                </div>
+                 <pre class="language-css pre"><code>   -moz-transition: all 0.3s ease 0s;         supported by mozila firefox
+-webkit-transition: all 0.3s ease 0s;        supported chrome safari and opeara12
+-o-transition: all 0.3s ease 0s;                 supported by opera11
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>psudo elements anchor tag</h2>
+                </div>
+                 <pre class="language-css pre"><code>a:hover
+a:link
+a:visited
+a:active
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Drop shadow</h2>
+                </div>
+                 <pre class="language-css pre"><code>filter: drop-shadow(0 5px 10px color);
+</code></pre>
+        </div>
+        
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Removing Arrows of Input:number</h2>
+                </div>
+                 <pre class="language-css pre"><code>input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+link: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
+</code></pre>
+        </div>
+        
+
+
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Changing Color Of Radio</h2>
+                </div>
+                 <pre class="language-css pre"><code>radioBtn
+{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    background-clip: content-box;
+    border: 2px solid #bbbbbb;
+    background-color: var(--color);
+    border-radius: 50%;
+}
+input[type="radio"]:checked
+{
+    background: gray;
+}</code></pre>
+        </div>
+        
+
+
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Toggle Button</h2>
+                </div>
+                 <pre class="language-css pre"><code>.dark-btn{
+    position: absolute;
+    top: 85px;
+    border: 2px solid darkgreen;
+    right: 30px;
+    background: #ccc;
+    width: 45px;
+    border-radius: 15px;
+    padding: 2px 3px;
+    cursor: pointer;
+    display: flex;
+    transition: padding-left 0.5s,background 0.5s;
+}
+.dark-btn.dark-btn-on{
+    padding-left: 23px;
+    background: #000;
+}
+.dark-btn span{  
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+Look Javascript in Javascript section
+</code></pre>
+        </div>
+
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Diagonally linear gradient</h2>
+                </div>
+                 <pre class="language-css pre"><code>background: linear-gradient(-30deg, #03a9f4 0%,  #3a78b7 50%, #262626 50%, #607d8b 100%);
+</code></pre>
+        </div>
+
+
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Button CSS</h2>
+                </div>
+                 <pre class="language-css pre"><code>width: 110px;
+padding: 5px 10px;
+font-size: 19px;
+height: 40px;
+cursor: pointer;
+border-radius: 8px;
+border:2px solid black;
+background: var(--gradient);
+color: var(--color);
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Clip Path Maker Link</h2>
+                </div>
+                 <pre class="language-css pre"><code>https://bennettfeely.com/clippy/
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>react css</h2>
+                </div>
+                 <pre class="language-css pre"><code>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>checking radio by clicking on the text</h2>
+                </div>
+                 <pre class="language-css pre"><code>to check the radio by clicking on the text 
+                 the FOR and ID of the label and radio must be same
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>bootstrap css link</h2>
+                </div>
+<pre class="language-html pre"><code>&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"&gt;
+
+</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>font awesome kit code</h2>
+                </div>
+<pre class="language-html pre"><code>&lt;script src="https://kit.fontawesome.com/1d71f87af0.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+
+</code></pre>
+        </div>
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>bootstrap class</h2>
+                </div>
+<pre class="language-html pre"><code>col-md-3
+
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>bootstrap js ilnk</h2>
+                </div>
+<pre class="language-html pre"><code>&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"&gt;&lt;/script&gt;
+
+</code></pre>
+        </div>
+
+
+        <div class="langBlock">
+                <div class="divOfH">
+                    <h2>Right Arrow</h2>
+                </div>
+                 <pre class="language-css pre"><code><i class="fa-solid fa-angle-right"></i>
+</code></pre>
+        </div>
+
+
+    
+    </div>
+    </div>
+
+{{>footer}}
+    {{!-- <script src="prism.js"></script> --}}
+    <script src="js/index.js"></script>
+</body>
+</html>

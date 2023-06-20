@@ -1,0 +1,15 @@
+Canvas:
+    Screen on which 3d model is to be created
+Suspense:
+    component which render before the loading of components inside of it
+mesh: 
+    Any object we see, the car, cube, square
+    Every mesh has two components atleast:
+geometry:
+    it's the shape of the mesh, like planeGeometry, boxGeometry, etc
+material:
+    it defines the material of the meshs, like rough, smooth, transparent, etc.
+scene:
+    
+ambientLight:
+    what we see in our daily life is because of light. So in case of canvas if we don't apply the light, we would not be able to see the colors of meshs (objects || items). Every thing would be black.

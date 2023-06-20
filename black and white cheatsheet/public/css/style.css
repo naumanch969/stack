@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+*{
+    padding: 0;margin: 0;box-sizing: border-box;font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --nav-bg: linear-gradient(black,rgb(88, 88, 88),rgb(65, 61, 61));
+    --nav-bg-angle: linear-gradient(90deg,black,rgb(88, 88, 88),rgb(65, 61, 61));
+    --gradient:linear-gradient(black,rgb(37, 37, 37),rgb(44, 44, 44),rgb(82, 81, 81),rgb(104, 104, 104));
+    --gradient-white:linear-gradient(rgb(196, 196, 196),rgb(196, 195, 195),rgb(172, 169, 169),rgb(160, 154, 154),rgb(189, 186, 186));
+    --gradientAngle:linear-gradient(90deg,black,rgb(37, 37, 37),rgb(44, 44, 44),rgb(82, 81, 81),rgb(104, 104, 104));
+    --color:white;
+    --color2:black;
+}
+
+.dark-theme{
+    --nav-bg: linear-gradient(360deg,rgb(126, 126, 126),rgb(184, 184, 184),rgb(223, 223, 223));
+    --nav-bg-angle: linear-gradient(90deg,rgb(90, 89, 89),rgb(236, 232, 232),rgb(109, 109, 109));
+    --gradient-white:linear-gradient(black,rgb(37, 37, 37),rgb(44, 44, 44),rgb(82, 81, 81),rgb(170, 170, 170));
+    --gradient:linear-gradient(360deg,rgb(233, 233, 233),rgb(199, 199, 199),rgb(172, 172, 172),rgb(156, 156, 156),rgb(145, 145, 145));
+    --gradientAngle:linear-gradient(90deg,rgb(196, 196, 196),rgb(196, 195, 195),rgb(172, 169, 169),rgb(160, 154, 154),rgb(189, 186, 186));
+    --color:black;
+    --color2:white;
+    font-weight: bold;
+    transition: background 0.5s;
+}
+
+
+body{
+    min-height: 100vw;
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    position: relative;
+}
+
+nav{
+    width: 100vw;
+    min-height: 70px;
+    height: 10vh;           
+    display: flex;                      /* 70px = 10vh */
+    justify-content: space-between;
+    align-items: center;
+    background:var(--nav-bg);
+    color: var(--color);
+    padding: 0 40px;
+    position: sticky;
+    top: 0%;
+    z-index: 11;
+}
+
+.navLeft{
+    display: flex;
+    width: 720px;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    line-height: 70px;
+}
+
+nav div span a{
+    text-decoration: none;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 32px;
+    position: relative;
+    /* right: 58px; */
+
+}
+
+nav div ul{
+    display: flex;
+    width: 540px;
+    height: 30px;
+    align-items: center;
+    font-size: 20px;    
+    height: 70px;
+}
+
+nav div ul li{
+    list-style: none;
+    /* margin: 0 10px; */
+    cursor: pointer;
+    text-align: center;
+    width: 110px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.subMenu1{
+    display: none;
+}
+
+
+nav div ul li:hover .subMenu1{
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 100px;
+    transition: height 1s;
+}
+
+nav div ul li:hover .subMenu1 ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 0%;
+    width: 100px;
+    height: auto;
+
+}
+
+nav div ul li:hover .subMenu1 ul li{
+    height: 48px;
+    width: 150px;
+    text-align: center;
+    line-height: 100%;
+    margin: 0;
+    background: gray;
+    border: 2px solid var(--color);
+    border-radius: 12px;
+}
+
+nav div ul li:hover .subMenu1 ul li{
+    line-height: 200%;
+}
+
+nav div ul li:hover .subMenu1 ul li:hover{
+    background: rgb(158, 158, 158);
+}
+
+
+.subMenu2{
+    display: none;
+}
+
+
+nav div ul li:hover .subMenu2{
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 100px;
+}
+
+nav div ul li:hover .subMenu2 ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 0%;
+    height: auto;
+    width: 100px;
+}
+
+nav div ul li:hover .subMenu2 ul li{
+    height: 28px;
+    width: 100px;
+    text-align: center;
+    margin: 0;
+}
+
+.subMenu3{
+    display: none;
+}
+
+nav div ul li:hover .subMenu3{
+    display: block;
+    position: absolute;
+    height: auto;
+    width: 100px;
+}
+
+nav div ul li:hover .subMenu3 ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    line-height: 0%;
+    height: auto;
+    width: 100px;
+}
+
+nav div ul li:hover .subMenu3 ul li{
+    height: 28px;
+    width: 100px;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav div ul li a:hover{
+    /* color: gray; */
+    border-bottom: 3px solid green;
+
+}
+
+nav div ul li a{
+    color: var(--color);
+    text-decoration: none;
+}
+
+.navRight{
+    display: flex;
+    width: 450px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.navInput{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    position: relative;
+    width: 285px;
+    align-items: center;
+    /* left: 44px; */
+}
+
+.searchInput{
+    width: 100%;
+    height: 100%;
+    border: 3px solid darkgreen;
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+.searchBtn{
+    position: absolute;
+    right: 0%;
+    border-radius: 8px;
+    height: 100%;
+    width: 60px;
+    border: 2px solid darkgreen;
+    background: black;
+    color: white;
+    margin-left: 2px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sign{
+    min-width: 140px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    border: 2px solid darkgreen;
+}
+
+.sign a{
+    height: 100%;
+    width: 50%;
+}
+
+.signUp{
+    width: 100%;
+    height: 100%;
+    background: rgb(128, 127, 127);
+    border: none;
+    color: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    cursor: pointer;
+}
+
+.signUp:hover{
+    background: rgb(163, 161, 161);
+    border: 1px solid var(--color);
+}
+
+.logIn{
+    width: 100%;
+    height: 100%;
+    background: rgb(56, 54, 54);
+    border: none;
+    color: white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    cursor: pointer;
+}
+
+.logIn:hover{
+    background: rgb(73, 72, 72);
+    border: 1px solid var(--color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    width: 100%;
+    position: relative;
+    bottom: 0%;
+    height: 8vh;
+    text-align: center;
+    background:var(--nav-bg-angle);
+    color: var(--color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer span:nth-child(2){
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* toggle button  */
+
+.dark-btn{
+    position: absolute;
+    top: 85px;
+    border: 2px solid darkgreen;
+    right: 30px;
+    background: #ccc;
+    width: 45px;
+    border-radius: 15px;
+    padding: 2px 3px;
+    cursor: pointer;
+    display: flex;
+    transition: padding-left 0.5s,background 0.5s;
+}
+.dark-btn.dark-btn-on{
+    padding-left: 23px;
+    background: #000;
+}
+.dark-btn span{  
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

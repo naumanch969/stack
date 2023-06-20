@@ -1,0 +1,27 @@
+
+:root{
+ 
+
+}
+
+.slider{
+    display: grid;
+    place-items: center;
+}
+
+.slide_track{
+    animation: scroll 4s linear infinite;
+}
+.slide_track:hover{
+    animation-play-state: paused;
+}
+
+@keyFrames scroll {
+    0%{
+        transform: translateX(0)
+    }
+    100%{
+        transform: translateX(calc(-80px*12))
+    }
+}
+ 

@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+ 
+
+
+
+
+
+/* sources */
+
+.slider{
+  	height: 4rem;
+	box-shadow: 0 0 7px 6px blue;
+	background: blue;
+	width: 100vw;
+	border: none;
+	margin-left: -60px;
+}
+
+.slider-track:hover{
+    animation-play-state: paused;
+}
+
+.slide-item{
+   	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+ 	perspective: 100px;
+}
+
+
+
+.slide-item a{
+    width: auto;
+	font-size: 2rem;
+	border: 1px solid black;
+	text-decoration: none;
+	color: black;
+	text-align: center;
+	border-radius: 3rem;
+	padding: 0.1rem 2rem;    
+    transition: transform 1s  ;
+}
+
+.slide-item:hover{
+    transform: translateZ(20px);
+}
+
+
+
+.slider-item::before, .slider-item::after{
+    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    content:"";
+    height:100%;
+    width:155;
+    position:absolute;
+    z-index: 2;
+}
+
+.slider-item::before{
+    left:0;
+    top:0;
+}
+
+.slider-item::after{
+    left:0;
+    top:0;
+    transform: translateZ(180deg);
+}
+
+
+
+
+
+
+
+
+
+/* 
+
+
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+} */

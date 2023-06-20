@@ -1,0 +1,20 @@
+    <div className="slider h-[100px] w-[90%] overflow-hidden relative m-auto border-[1px] border-white " >
+
+                <div style={{ width: `${slideWidth * slidesNumber * 2}` }} className={`animate-slide slide_track flex w-[${slideWidth * slidesNumber * 2}] `} >
+                    {
+                        Array(slidesNumber).fill('').map((_nothing, index) => (
+                            <div style={{ perspective: '15px' }} className={`  w-[80px] flex items-center  `} >
+                                <p style={{ display: 'flex' }} className="w-full text-black py-[5px] px-[15px] rounded-[20px] flex justify-between items-center bg-white " >{index + 1}</p>
+                            </div>
+                        ))
+                    }
+                    {
+                        Array(slidesNumber).fill('').map((_nothing, index) => (
+                            <div style={{ perspective: '15px' }} className={` w-[80px] flex items-center  `} >
+                                <p style={{ display: 'flex' }} className="w-full text-black py-[5px] px-[15px] rounded-[20px] flex justify-between items-center bg-white " >{index + 1}</p>
+                            </div>
+                        ))
+                    }
+                </div>
+
+            </div>
